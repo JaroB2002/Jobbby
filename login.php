@@ -11,7 +11,7 @@
       $_SESSION['email'] = $_POST['email'];
       $_SESSION['password'] = $_POST['password'];
       $_SESSION['loggedIn'] = true;
-      header('location: notindex.php');
+      header('location: index.php');
     }
     else {?>
       <script>
@@ -51,7 +51,6 @@
 
 </head>
 <body>
-<!-- partial:index.partial.html -->
 
 
 <div class="relative md:h-screen flex overflow-hidden">
@@ -107,7 +106,6 @@
  </div>
  </div>
 
-<!-- partial -->
 
   
 </body>
