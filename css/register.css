@@ -1,0 +1,60 @@
+.inputter{
+    height: 35px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.input-title{
+    margin-top: 10px;
+}
+
+.form-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 15px;
+}
+
+.submit-button{
+    color: white;
+    background-color: #4743E0;
+    border-radius: 5px;
+}
+
+#klaar{
+    margin-top: 10px;
+}
+
+strong{
+    background-color: #4743E0;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 400;
+}
+
+input[type="text"] {
+    border-radius: 10px;
+    background-color: #E8F0FE;
+}
+
+input[type="password"] {
+    border-radius: 10px;
+    background-color: #E8F0FE;
+}
+
+input[type="checkbox"] {
+    border-radius: 360px;
+    background-color: #E8F0FE;
+}
+
+#school {
+    border-radius: 10px;
+    background-color: #E8F0FE;
+    margin-top: 1Opx;
+}
+
+.agree{
+    margin-top: 100px;
+}
+

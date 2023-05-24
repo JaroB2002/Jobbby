@@ -1,0 +1,10 @@
+.cv-container{
+    background-color: aliceblue;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 5%;
+    right: 5%;
+    margin-bottom: 20px;
+}
