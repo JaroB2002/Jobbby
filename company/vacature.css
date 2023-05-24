@@ -1,0 +1,113 @@
+/* Standards */
+h1{
+    font-family: 'Montserrat';
+    font-weight: bold;
+}
+h2{
+    font-family: 'Metropolis';
+    font-weight: 600;
+}
+h3{
+    font-family: 'Metropolis';
+    font-weight: 200;
+}
+p{
+    font-family: 'Proxima Nova';
+    font-weight: lighter;
+}
+div img{
+    width: 40px;
+    height: 40px;
+}
+
+
+/* form */
+.vacature-entire{
+    width: 80%;
+    padding: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+
+    display: flex;
+}
+
+.vacature-left{
+    margin-right: 5%;
+}
+
+#text{
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#text-titel{
+    margin-bottom: 20px;
+    width: 300px;
+    border-radius: 5px;
+}
+
+#nodig{
+    margin-bottom: 20px;
+    width: 300px;
+    border-radius: 5px;
+}
+
+#next-button{
+    background-color: #0A65CC;
+    color: white;
+    padding: 1rem;
+    border-radius: 5pt;
+}
+
+.salaris{
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+#text-side{
+    width: 150px;
+    border-radius: 5px;
+}
+
+.locatie{
+    margin-left: 5px;
+}
+
+.vacature-right{
+    margin-left: 5%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.right-top{
+    display: flex;
+    flex-direction: row;
+}
+
+.right-bottom{
+    display: flex;
+    flex-direction: row;
+}
+
+#geldig_tot{
+    width: 150px;
+    border-radius: 5px;
+
+}
+
+#level{
+    width: 150px;    
+    border-radius: 5px;
+
+    margin-left: 5px;
+}
+
+.pro-div{
+    margin-left: 5px;
+}
+
+#pro{
+    border-radius: 5px;
+}

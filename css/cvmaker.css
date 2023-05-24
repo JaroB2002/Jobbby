@@ -1,0 +1,240 @@
+/* Standards */
+h1{
+    font-family: 'Montserrat';
+    font-weight: bold;
+}
+h2{
+    font-family: 'Metropolis';
+    font-weight: 600;
+}
+h3{
+    font-family: 'Metropolis';
+    font-weight: 200;
+}
+p{
+    font-family: 'Proxima Nova';
+    font-weight: lighter;
+}
+div img{
+    width: 40px;
+    height: 40px;
+}
+/* let's get cray cray */
+.cv-personal{
+    background: whitesmoke;
+    border-radius: 5pt;
+    margin: 20px 70px 20px 70px;
+    padding: 50px;
+
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+}
+.cv-school{
+    background: whitesmoke;
+    border-radius: 5pt;
+    margin: 20px 70px 20px 70px;
+    padding: 50px;
+
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+}
+.cv-work{
+    background: whitesmoke;
+    border-radius: 5pt;
+    margin: 20px 70px 20px 70px;
+    padding: 50px;
+
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+}
+.cv-computer{
+    background: whitesmoke;
+    border-radius: 5pt;
+    margin: 20px 70px 20px 70px;
+    padding: 50px;
+
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+}
+.cv-persoonlijk{
+    background: whitesmoke;
+    border-radius: 5pt;
+    margin: 20px 70px 20px 70px;
+    padding: 50px;
+
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+}
+.cv-beschikbaar{
+    background: whitesmoke;
+    border-radius: 5pt;
+    margin: 20px 70px 20px 70px;
+    padding: 50px;
+
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+}
+.cv-extra{
+    background: whitesmoke;
+    border-radius: 5pt;
+    margin: 20px 70px 20px 70px;
+    padding: 50px;
+
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
+#pic-title{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.cv-title{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+} 
+.cv-name{
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    margin-left: 50px;
+}
+.cv-name img{
+    width: 30px;
+    height: 30px;
+}
+.arrows{
+    display: flex;
+    justify-content: right;
+    flex-direction: row;
+
+    margin-right: 50px;
+    margin-top: -30px;
+}
+#min{
+    height: 5px;
+    width: auto;
+
+    margin-top: 10px;
+    margin-right: 15px;
+}
+#plus{
+    height: 25px;
+    width: auto;
+}
+#cv-questions{
+    margin-left: 50px;
+    
+}
+#cv-questions-dos{
+    margin-left: 50px;
+}
+#cv-questions-tres{
+    margin-left: 50px;
+}
+#cv-questions-four{
+    margin-left: 50px;
+}
+#cv-questions-five{
+    margin-left: 50px;
+}
+#cv-questions-six{
+    margin-left: 50px;
+}
+#cv-questions-seven{
+    margin-left: 50px;
+}
+#checkmark{
+    margin: -50px;
+}
+#myFile{
+    background-color: whitesmoke;
+    border: 0px;
+}
+
+.column {
+    float: left;
+    width: 50%;
+  }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  label{
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 10pt;
+  }
+  #invoer{
+    width: 50%;
+    border-radius: 3pt;
+    border: 1px solid darkgrey;
+    height: 25px;
+    background-color: #EFF4F9;
+  }
+  #extra1{
+    width: 75%;
+    height: 40px;
+  }
+  #werkgever{
+    width: 75%;
+  }
+  #functieomschrijving{
+    width: 75%;
+    height: 40px;
+  }
+  #vrijwilligerswerk{
+    width: 75%;
+    height: 40px;
+  }
+#yes, #no{
+    width: 10%;
+}
+#yes{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+#no{
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    margin-right: 5px;
+}
+#comp_overige{
+    height: 150px;
+}
+#extra{
+    height: 150px;
+}
+#next-button{
+    font-family: 'Montserrat';
+    font-weight: bolder;
+    background-color: #0A65CC;
+    color: white;
+    font-size: 15pt;
+    
+    margin: 15px;
+    margin-bottom: 30px;
+    margin-left: 70px;
+
+    border: 0px;
+    border-radius: 5pt;
+
+    height: 50px;
+    width: 350px;
+}
+
+.message{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+
+    padding: 10%;
+
+    background: darkblue;
+    margin: 5%;
+    border-radius: 5pt;
+    color: white;
+}
+
+#title-cv-send{
+    font-family: 'Montserrat';
+    font-weight: bolder;
+    font-size: 20pt;
+    margin-bottom: 20px;
+}

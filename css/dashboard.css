@@ -1,0 +1,10 @@
+#back{
+    background-color: #7E3AF2;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+
+    width: 10%;
+}
