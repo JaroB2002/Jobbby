@@ -8,7 +8,7 @@
 </head>
 <body>
     <p>HET WERK KUT</p>
-            <!-- Start zoekbalk -->
+          <!-- Start zoekbalk -->
   <form class="flex items-center mx-auto md:ml-32 md:mr-auto">
   <label for="simple-search" class="sr-only">Zoeken</label>
   <div class="relative w-full md:w-1/2">
@@ -89,6 +89,50 @@
   </div>
 
 <!-- End microcards home page-->
+
+<!-- Drietak  Gen Z is op zoek naar ...-->
+<div class="mx-auto max-w-5xl px-4 py-14">
+  <div class="mb-4 flex items-center justify-between">
+    <h1 class="text-left text-3xl font-semibold">Gen Z is op zoek naar</h1>
+    <button target="_blank" href="jobs.php" class="rounded-lg border-2 border-gray-100 px-4 py-2 font-semibold text-blue-600">Bekijk alles</button>
+  </div>
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div class="flex w-full flex-col items-start justify-between rounded-lg bg-gray-100 p-8 shadow-md md:flex-row">
+      <div class="rounded-xl bg-blue-100 p-3 sm:w-1/2">
+        <img src="../jobbby/images/verkoop.jpg" alt="Verkoopsstudent" class="w-full rounded-2xl" />
+      </div>
+      <div class="sm:ml-4 mt-4 sm:mt-0">
+        <h3 class="mb-1 text-lg font-bold">Verkoop</h3>
+        <a href="jobs.php" class="mb-6 text-gray-500">Zie alle vacatures</a>
+        <ul class="mt-3 list-inside list-disc">
+          <?php foreach($horecas as $horeca): ?>
+          <li class="list-none mb-1"><a href="../jobbby/job.php?id=<?php echo $job['id'];?>" class="text-blue-600 hover:underline"><?php echo $horeca['job_titel']; ?></a></li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex w-full flex-col items-start justify-between rounded-lg bg-gray-100 p-8 shadow-md md:flex-row">
+      <div class="rounded-xl bg-blue-100 p-3 sm:w-1/2">
+        <img src="../jobbby/images/content.jpg" alt="Content creator" class="w-full rounded-2xl" />
+      </div>
+      <div class="sm:ml-4 mt-4 sm:mt-0">
+        <h3 class="mb-1 text-lg font-bold">Content creatie</h3>
+        <a href="jobs.php" class="mb-6 text-gray-500">Zie alle vacatures</a>
+        <ul class="mt-3 list-inside list-disc">
+          <?php foreach($informaticas as $informatica):?>
+          <li class="list-none mb-1"><a href="../jobbby/job.php?id=<?php echo $job['id'];?>" class="text-blue-600 hover:underline"><?php echo $informatica['job_titel']?></a></li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- EINDE Drietak  Gen Z is op zoek naar ...-->
+
 
 </body>
 </html>
