@@ -1,3 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-0z+YgOJhRceH9CLQs+ZI0GWsQc1sAaJdfxwu/p+Oa1zll0GKjhtXJrrdZvoJ8S6/3t+Wp3qmf+JyESN54zH4Gg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../jobbby/css/jobs.css">
+
+  <title>Home - Jobbby</title>
+
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<?php include_once(__DIR__ . '/compartments/header.php'); ?>
+  
+
+  <!-- Start Home page page -->
+  <section class="bg-white dark:bg-gray-900">
+        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+            <div class="mr-auto place-self-center lg:col-span-7">
+         
+              <?php if(!isset($_SESSION['isBedrijf']) || $_SESSION['isBedrijf'] === false){?>
+                <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-white">Zoek je nieuwe studentenjob in één klik</h1>
+                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Wij bij Jobbby vinden het makkelijk als jij je studentenjob zo snel mogelijk kan vinden om je cv uit te breiden!</p>                
+              <?php }else{?>
+                <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-white">Zoek snel gemotiveerde studenten!</h1>
+                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Zoek op een snelle en efficiente manier studenten die echt willen werken! Plaats snel een vacature.</p>
+                <?php }?>
+                
+                
+                <?php if(!empty($_SESSION['loggedIn']) == false){?>
+                <a href="login.php" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                    Log in als student
+                    <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </a>
+                <a href="login.php" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                    Log in als werkgever
+                    <svg class="w-5 h-5 ml-2 -mr-1" fill="black" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+
+                </a> 
+                <?php }else{?>
+                  <!-- <p>fjdsqlkfj</p> -->
+                  <?php }?>
+            </div>
+            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+                <img src="images/ILSVGSTUD.svg" alt="Student picture vector">
+            </div>                
+        </div>
           <!-- Start zoekbalk -->
   <form class="flex items-center mx-auto md:ml-32 md:mr-auto">
   <label for="simple-search" class="sr-only">Zoeken</label>
@@ -540,3 +593,28 @@
 
 
 <?php include_once(__DIR__ . '/compartments/footer.php'); ?>
+
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+          
+        }
+      }
+    }
+    
+  </script>
+    <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      
+    }
+    
+  </style>
+</body>
+</html>
