@@ -1,17 +1,3 @@
-<?php
-    include_once(__DIR__.'/classes/User.php');
-    include_once(__DIR__.'/classes/Vacature.php');
-
-    session_start();
-
-
-    $jobs = Vacature::getLastVacatures();
-
-    $horecas = Vacature::getLastHoreca();
-
-    $informaticas = Vacature::lastInformatica();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
