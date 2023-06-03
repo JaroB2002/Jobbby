@@ -2,13 +2,6 @@
     include_once(__DIR__.'/classes/User.php');
 
 
-
-
-    $jobs = Vacature::getLastVacatures();
-
-    $horecas = Vacature::getLastHoreca();
-
-    $informaticas = Vacature::lastInformatica();
 ?>
 
 
