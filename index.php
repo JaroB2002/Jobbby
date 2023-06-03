@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - Jobby</title>
-</head>
-<body>
-            <!-- Start zoekbalk -->
+          <!-- Start zoekbalk -->
   <form class="flex items-center mx-auto md:ml-32 md:mr-auto">
   <label for="simple-search" class="sr-only">Zoeken</label>
   <div class="relative w-full md:w-1/2">
@@ -548,9 +539,4 @@
 </div>
 
 
-
-
-</body>
-</html>
-
-
+<?php include_once(__DIR__ . '/compartments/footer.php'); ?>
