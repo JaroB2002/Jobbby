@@ -5,6 +5,7 @@
     session_start();
 
 
+    $jobs = Vacature::getLastVacatures();
 
 ?>
 
