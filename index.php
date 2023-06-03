@@ -7,7 +7,7 @@
   <title>Home - Jobby</title>
 </head>
 <body>
-          <!-- Start zoekbalk -->
+            <!-- Start zoekbalk -->
   <form class="flex items-center mx-auto md:ml-32 md:mr-auto">
   <label for="simple-search" class="sr-only">Zoeken</label>
   <div class="relative w-full md:w-1/2">
@@ -516,6 +516,37 @@
   })
 </script>
 <!-- EINDE Reviews -->
+
+<!-- Start register/login block -->
+<?php if(!empty($_SESSION['loggedIn']) == false){?>
+<div class="bg-white py-12">
+  <div class="mx-40 grid grid-cols-1 sm:grid-cols-2 gap-2">
+    <div class="p-6 rounded-lg border bg-cover" style="background-image: url('images/RegisterStud.jpg'); background-color: rgba(255, 255, 255, 0.1);">
+      <h2 class="text-lg font-medium mb-4">Registreer je als student</h2>
+      <p class="mb-4">Altijd al gewild om je cv uit te breiden en je droomstudentenjob te vinden? Dromen bestaan niet, of toch wel?! Met Jobbby komen je dromen uit!</p>
+      <div class="flex justify-end">
+        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Login als bedrijf</button>
+        <button class="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Registreer als bedrijf</button>
+      </div>
+    </div>
+    <div class="p-6 rounded-lg border" style="background-image: url('images/LoginStud.jpg'); background-repeat: no-repeat; background-position: 75% center; background-color: rgba(255, 255, 255, 0.1);">
+      <h2 class="text-lg font-medium mb-4">Registreer je als bedrijf</h2>
+      <p class="mb-4">Altijd al gewild om studenten werkervaring te geven? Jij kan ze helpen! Als bedrijf heb je iemand die je jobs kan uitvoeren zonder veel geld eraan te moeten besteden.</p>
+      <div class="flex justify-end">
+        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Login als bedrijf</button>
+        <button class="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Registreer als bedrijf</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<?php } else { ?>
+  <div>
+    <!-- <p>fsdfqs</p> -->
+  </div>
+  <?php } ?>
+</div>
+
 
 
 
