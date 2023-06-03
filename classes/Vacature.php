@@ -212,7 +212,6 @@ class Vacature{
     public function setLogo(string $logo)
     {
         $this->logo = $logo;
-
         return $this;
     }
 
@@ -333,5 +332,39 @@ class Vacature{
         $vacature = $statement->fetch(PDO::FETCH_ASSOC);
         return $vacature;
     }
+
+    public static function getLastHoreca(){
+        $PDO = Database::getInstance();
+        $statement = $PDO->prepare("SELECT * FROM vacatures WHERE sector = 'Horeca' ORDER BY id DESC LIMIT 3");
+        $statement->execute();
+        $vacatures = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $vacatures;
+    }
     
+    public static function lastInformatica(){
+        $PDO = Database::getInstance();
+        $statement = $PDO->prepare("SELECT * FROM vacatures WHERE sector = 'Informatica' ORDER BY id DESC LIMIT 3");
+        $statement->execute();
+        $vacatures = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $vacatures;
+    }
+
+    public static function uploadFile(){
+        $PDO = Database::getInstance();
+        //upload file
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES["logo"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    }
+
+    public static function getFavoriteVacatures(){
+        $PDO = Database::getInstance();
+        $statement = $PDO->prepare("SELECT * FROM vacatures WHERE id IN (SELECT job_id FROM favorites WHERE user_id = :user_id)");
+        $user = User::getUserByEmail($_SESSION['email']);
+        $statement->bindValue(":user_id", $user['id']);
+        $statement->execute();
+        $vacatures = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $vacatures;
+    }
 }
