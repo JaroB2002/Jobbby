@@ -284,7 +284,7 @@ class Vacature{
     }
 
     //get 3 last vacatures
-    public function getLastVacatures(){
+    public static function getLastVacatures(){
         $PDO = Database::getInstance();
         $statement = $PDO->prepare("SELECT * FROM `vacatures` ORDER BY id DESC LIMIT 3");
         $statement->execute();
@@ -294,7 +294,7 @@ class Vacature{
 
 
     //Get vacatures alfabetisch
-    public  function getVacaturesAlphabetically(){
+    public static function getVacaturesAlphabetically(){
         $PDO = Database::getInstance();
         $statement = $PDO->prepare("SELECT * FROM `vacatures` ORDER BY bedrijfnaam ASC");
         $statement->execute();
@@ -303,7 +303,7 @@ class Vacature{
     }
    
     // Get vacatures by id
-    public function getVacatureById(int $id): array
+    public static function getVacatureById(int $id): array
     {
         $PDO = Database::getInstance();
         $statement = $PDO->prepare("SELECT * FROM `vacatures` WHERE id = :id");
@@ -313,7 +313,7 @@ class Vacature{
         return $vacature;
     }
 
-    public function getJobBeschrijvingById(int $id): array
+    public static function getJobBeschrijvingById(int $id): array
     {
         $PDO = Database::getInstance();
         $statement = $PDO->prepare("SELECT job_beschrijving FROM `vacatures` WHERE id = :id");
@@ -323,7 +323,7 @@ class Vacature{
         return $vacature;
     }
 
-    public function getVerplichtingenById(int $id): array
+    public static function getVerplichtingenById(int $id): array
     {
         $PDO = Database::getInstance();
         $statement = $PDO->prepare("SELECT verplichtingen FROM `vacatures` WHERE id = :id");
@@ -349,7 +349,7 @@ class Vacature{
         return $vacatures;
     }
 
-    public function uploadFile(){
+    public static function uploadFile(){
         $PDO = Database::getInstance();
         //upload file
         $target_dir = "uploads/";
@@ -358,7 +358,7 @@ class Vacature{
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     }
 
-    public function getFavoriteVacatures(){
+    public static function getFavoriteVacatures(){
         $PDO = Database::getInstance();
         $statement = $PDO->prepare("SELECT * FROM vacatures WHERE id IN (SELECT job_id FROM favorites WHERE user_id = :user_id)");
         $user = User::getUserByEmail($_SESSION['email']);
