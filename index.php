@@ -1,12 +1,18 @@
 <?php
-    include_once(__DIR__.'/classes/User.php');
-    include_once(__DIR__.'/classes/Vacature.php');
+    include_once(DIR.'/classes/User.php');
+    include_once(DIR.'/classes/Vacature.php');
 
     session_start();
 
+    $jobs = new Vacature();
+    $order = "ORDER BY id DESC LIMIT 3";
+    $jobs = $jobs->getVacatures($order);
 
-    $jobs = Vacature::getLastVacatures();
+    $horecas = new Vacature();
+    $horecas = $horecas->getLastHoreca();
 
+    $informaticas = new Vacature();
+    $informaticas = $informaticas->lastInformatica();
 ?>
 
 
