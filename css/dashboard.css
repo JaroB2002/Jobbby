@@ -1,10 +1,66 @@
 #back{
-    background-color: #7E3AF2;
-    color: white;
-    font-weight: bold;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 5px;
+  background-color: #7E3AF2;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px;
+  width: 10%;
+}
 
-    width: 10%;
+.all-favorites{
+margin-left: 2%;
+margin-right: 2%;
+border: 0px solid #707275;
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.05);
+border-radius: 15px;
+padding: 2%;
+}
+
+.title-favorites{
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: 1fr;
+margin-bottom: 15px;
+background-color: #F9FAFB;
+
+}
+
+.title-favorites:first-child{
+margin-bottom: 10px;
+padding: 15px 0px 15px 0px;
+font-weight: bold;
+font-size: 13.5px;
+color: #707275;
+border-radius: 15px 15px 0px 0px;
+border-bottom: 1px solid #707275;
+
+}
+
+.sub-favorites{
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: 1fr;
+margin-bottom: 15px;
+}
+.x{
+background-color: #7E3AF2;
+color: white;
+padding: 2px 10px 2px 10px;
+border-radius: 5px;
+font-size: 80%;
+}
+
+
+#pf-text{
+position: absolute;
+left: 15px;
+}
+
+#pf{
+width: 80px;
+height: 80px;
+}
+hr{
+margin-top: 10px;
 }

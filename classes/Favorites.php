@@ -48,7 +48,7 @@ class Favorites{
         $statement->bindValue(":user_id", $user['id']);
         $statement->execute();
 
-        $favorites = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $favorites = $statement->fetch();
         return $favorites;
     }
 

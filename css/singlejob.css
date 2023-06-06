@@ -33,7 +33,7 @@
 
 .top-vac-right{
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: none;
     width: 250px;
 }
@@ -182,7 +182,9 @@
     grid-template-columns: 50px 50px; 
     grid-column-gap: 5px;
 }
-
+.favorite{
+    color: green;
+}
 #sol-screen{
     position:fixed;
     padding:50px;
@@ -227,6 +229,19 @@
     scale: 1.1;
 }
 
+#opslaan-btn{
+    position: absolute;
+    right: 21%;
+    background-color: #f8f8ff;
+    color: #4743E0;
+    padding: 8px 30px 8px 30px;
+    font-family: "Metropolis";
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 3px solid #4743E0;
+}
+
 @media only screen and (max-width: 810px) {
     .vac-bottom-right{
         width: 90%;
@@ -236,5 +251,9 @@
     .vac-bottom-left{
         margin-top: 300px;
         width: 190%;
+    }
+
+    #opslaan-btn{
+        right: 10%;
     }
   }

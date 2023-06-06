@@ -105,9 +105,7 @@
       background-color: darkblue;
     }
     @media(max-width: 768px) {
-      .container {
-        padding: 20px 30px;
-      }
+
       .left-side,
       .right-side {
         max-width: 100%;

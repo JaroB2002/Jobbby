@@ -25,8 +25,8 @@
       </div>
       <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
         <div class="flex flex-shrink-0 items-center">
-          <img class="block h-8 w-auto lg:hidden" src="Logo.png" alt="Jobbby" />
-          <img class="hidden h-8 w-auto lg:block" src="Logo.png" alt="Jobbby" />
+          <img class="block h-8 w-auto lg:hidden" src="../Logo.png" alt="Jobbby" />
+          <img class="hidden h-8 w-auto lg:block" src="../Logo.png" alt="Jobbby" />
         </div>
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
@@ -35,7 +35,7 @@
             <a href="../jobs.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-700 hover:text-white">Jobs</a>
             <?php 
                   if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true){ ?>
-                  <a href="../public/index.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-700 hover:text-white">Dashboard</a>
+                  <a href="../index.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-700 hover:text-white">Dashboard</a>
                 <?php
                   } else { ?>
                       <!-- <p>fdsqf</p>                -->

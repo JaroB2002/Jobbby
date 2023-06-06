@@ -1,11 +1,13 @@
-<?php 
+<?php
+
 
 require_once(__DIR__ . "/Db.php");
 
-class User{
+class User
+{
     private $id;
     private $firstname;
-    private $lastname; 
+    private $lastname;
     private $schoolnaam;
     private $mail;
     private $telnr;
@@ -18,7 +20,7 @@ class User{
 
     /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -28,7 +30,7 @@ class User{
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -38,7 +40,7 @@ class User{
 
     /**
      * Get the value of firstname
-     */ 
+     */
     public function getFirstname()
     {
         return $this->firstname;
@@ -48,7 +50,7 @@ class User{
      * Set the value of firstname
      *
      * @return  self
-     */ 
+     */
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
@@ -58,7 +60,7 @@ class User{
 
     /**
      * Get the value of lastname
-     */ 
+     */
     public function getLastname()
     {
         return $this->lastname;
@@ -68,7 +70,7 @@ class User{
      * Set the value of lastname
      *
      * @return  self
-     */ 
+     */
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
@@ -78,7 +80,7 @@ class User{
 
     /**
      * Get the value of schoolnaam
-     */ 
+     */
     public function getSchoolnaam()
     {
         return $this->schoolnaam;
@@ -88,7 +90,7 @@ class User{
      * Set the value of schoolnaam
      *
      * @return  self
-     */ 
+     */
     public function setSchoolnaam($schoolnaam)
     {
         $this->schoolnaam = $schoolnaam;
@@ -98,7 +100,7 @@ class User{
 
     /**
      * Get the value of password
-     */ 
+     */
     public function getPassword()
     {
         return $this->password;
@@ -108,7 +110,7 @@ class User{
      * Set the value of password
      *
      * @return  self
-     */ 
+     */
     public function setPassword($password)
     {
         $hash = password_hash($password, PASSWORD_BCRYPT, ["cost" => 12 ]);
@@ -119,7 +121,7 @@ class User{
 
     /**
      * Get the value of mail
-     */ 
+     */
     public function getMail()
     {
         return $this->mail;
@@ -129,7 +131,7 @@ class User{
      * Set the value of mail
      *
      * @return  self
-     */ 
+     */
     public function setMail($mail)
     {
         $this->mail = $mail;
@@ -139,7 +141,7 @@ class User{
 
     /**
      * Get the value of telnr
-     */ 
+     */
     public function getTelnr()
     {
         return $this->telnr;
@@ -149,7 +151,7 @@ class User{
      * Set the value of telnr
      *
      * @return  self
-     */ 
+     */
     public function setTelnr($telnr)
     {
         $this->telnr = $telnr;
@@ -159,7 +161,7 @@ class User{
 
     /**
      * Get the value of opleiding
-     */ 
+     */
     public function getOpleiding()
     {
         return $this->opleiding;
@@ -169,7 +171,7 @@ class User{
      * Set the value of opleiding
      *
      * @return  self
-     */ 
+     */
     public function setOpleiding($opleiding)
     {
         $this->opleiding = $opleiding;
@@ -179,7 +181,7 @@ class User{
 
     /**
      * Get the value of kbo
-     */ 
+     */
     public function getKbo()
     {
         return $this->kbo;
@@ -189,7 +191,7 @@ class User{
      * Set the value of kbo
      *
      * @return  self
-     */ 
+     */
     public function setKbo($kbo)
     {
         $this->kbo = $kbo;
@@ -199,7 +201,7 @@ class User{
 
     /**
      * Get the value of bedrijfsnaam
-     */ 
+     */
     public function getBedrijfsnaam()
     {
         return $this->bedrijfsnaam;
@@ -209,7 +211,7 @@ class User{
      * Set the value of bedrijfsnaam
      *
      * @return  self
-     */ 
+     */
     public function setBedrijfsnaam($bedrijfsnaam)
     {
         $this->bedrijfsnaam = $bedrijfsnaam;
@@ -219,7 +221,7 @@ class User{
 
     /**
      * Get the value of werkemail
-     */ 
+     */
     public function getWerkemail()
     {
         return $this->werkemail;
@@ -229,7 +231,7 @@ class User{
      * Set the value of werkemail
      *
      * @return  self
-     */ 
+     */
     public function setWerkemail($werkemail)
     {
         $this->werkemail = $werkemail;
@@ -238,7 +240,8 @@ class User{
     }
 
 
-    public function insertUser(){
+    public function insertUser()
+    {
         $PDO = Database::getInstance();
 
         $statement = $PDO->prepare("INSERT INTO users(first_name, last_name, school_name, opleiding, school_email, tel_nr, wachtwoord, is_bedrijf) 
@@ -271,7 +274,8 @@ class User{
         $statement->execute();
     }
 
-    public static function canLogin($mail, $password){
+    public static function canLogin($mail, $password)
+    {
         $PDO = Database::getInstance();
         $statement = $PDO->prepare("SELECT * FROM users WHERE school_email = :mail OR werk_email = :workmail");
         $statement->bindValue(":mail", $mail);
@@ -280,7 +284,7 @@ class User{
 
         $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-        if(!$user){
+        if (!$user) {
             throw new Exception("Email not found");
         }
 
@@ -298,7 +302,8 @@ class User{
         return $user;
     }
 
-    public static function getUserByEmail(){
+    public static function getUserByEmail()
+    {
         $PDO = Database::getInstance();
         $statement = $PDO->prepare("SELECT * FROM users WHERE school_email = :mail OR werk_email = :workmail");
         $statement->bindValue(":mail", $_SESSION['email']);
@@ -309,7 +314,8 @@ class User{
         return $user;
     }
 
-    public static function isBedrijf(){
+    public static function isBedrijf()
+    {
         $PDO = Database::getInstance();
         $statement = $PDO->prepare("SELECT * FROM users WHERE is_bedrijf = 1");
         $statement->execute();
@@ -318,11 +324,11 @@ class User{
         return $user;
     }
 
-    public static function getAantalJobsGedaan(int $id){
+    public static function getAantalJobsGedaan(int $id)
+    {
         $PDO = Database::getInstance();
-        $statement = $PDO->prepare("SELECT jobs_gedaan FROM users WHERE id = :user_id");
-        $statement->bindValue(":user_id", $id);
-        $statement->execute();
+        $statement = $PDO->prepare("SELECT jobs_gedaan FROM users WHERE id = :id");
+        $statement->bindValue(":id", $id);
+        return $statement->fetch();
     }
 }
-

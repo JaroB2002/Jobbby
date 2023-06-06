@@ -1,5 +1,16 @@
 <?php 
     include_once(__DIR__.'/../classes/Vacature.php');
+    include_once(__DIR__.'/../classes/User.php');
+    session_start();
+//fjldkqsjkfkf
+    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false){
+        header('location: ../logout.php');
+    }
+
+    $user = User::getUserByEmail();
+    if ($user['is_bedrijf'] === 0){
+        header('location: ../index.php');
+    } 
 
     if(isset($_POST['next-button'])){
         // even iets 
@@ -48,10 +59,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-    <link rel="stylesheet" href="../company/vacature.css">    
+    <link rel="stylesheet" href="vacature.css">    
     <title>Vacature</title>
     <?php 
-        include_once(__DIR__.'/../compartments/header.php');
+        include_once('header.php');
     ?>
 </head>
 <body>

@@ -273,7 +273,9 @@ class Vacature{
             case "new":
                 $sqlOrder = "ORDER BY geldig_van DESC";
                 break;
-                
+            case "three":
+                $sqlOrder = "ORDER BY geldig_van DESC LIMIT 3";
+                break;   
         }
 
         $PDO = Database::getInstance();
@@ -341,7 +343,7 @@ class Vacature{
         return $vacatures;
     }
     
-    public function lastInformatica(){
+    public static function lastInformatica(){
         $PDO = Database::getInstance();
         $statement = $PDO->prepare("SELECT * FROM vacatures WHERE sector = 'Informatica' ORDER BY id DESC LIMIT 3");
         $statement->execute();

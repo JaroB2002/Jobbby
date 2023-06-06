@@ -29,6 +29,17 @@
     margin-bottom: 15%;
 }
 
+.jobs{
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    grid-gap: 2%;
+    margin-left: -4%;
+}
+
+.jobs:last-child{
+    margin-bottom: 0%;
+}
+
 .entire-card{
     border: 1px solid #ccc;
     background-color: whitesmoke;
@@ -95,8 +106,10 @@
 
 .favorite{
     margin-left: 100px;
-
     margin-top: 15px;
+
+    font-size: 20pt;
+    font-weight: bold;
 }
 
 #chrome{
@@ -162,6 +175,7 @@
     border-radius: 5px;
     margin-left: 10px;
 }
+
 
 @media only screen and (max-width: 1350px) {
     .all-jobs{
