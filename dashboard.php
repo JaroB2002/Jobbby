@@ -1,78 +1,62 @@
-<?php
-    include_once(__DIR__.'/classes/User.php');
-    include_once(__DIR__.'/classes/Vacature.php');
-    include_once(__DIR__.'/classes/Db.php');
+<!-- <h1>Dit issssssssss de pagina voor mensen die NIET ingelogd zijn</h1>
+ -->
 
-    session_start();
-
-    $jobs = new Vacature();
-    $order = "three";
-    $jobs = $jobs->getVacatures($order);
-
-    $horecas = new Vacature();
-    $horecas = $horecas->getLastHoreca();
-
-    $informaticas = new Vacature();
-    $informaticas = $informaticas->lastInformatica();
-?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="UTF-8">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+          
+        }
+      }
+    }
+    
+  </script>
+    <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      
+    }
+    
+  </style>
+  <title>Login</title>
   <link rel="stylesheet" href="./style.css">
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-0z+YgOJhRceH9CLQs+ZI0GWsQc1sAaJdfxwu/p+Oa1zll0GKjhtXJrrdZvoJ8S6/3t+Wp3qmf+JyESN54zH4Gg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="css/jobs.css">
-
-  <title>Home - Jobbby</title>
 
 
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-<?php include_once(__DIR__ . '/compartments/header.php'); ?>
-  
+
 
   <!-- Start Home page page -->
   <section class="bg-white dark:bg-gray-900">
         <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
             <div class="mr-auto place-self-center lg:col-span-7">
-         
-              <?php if(!isset($_SESSION['isBedrijf']) || $_SESSION['isBedrijf'] === false){?>
                 <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-white">Zoek je nieuwe studentenjob in één klik</h1>
-                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Wij bij Jobbby vinden het makkelijk als jij je studentenjob zo snel mogelijk kan vinden om je cv uit te breiden!</p>                
-              <?php }else{?>
-                <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-white">Zoek snel gemotiveerde studenten!</h1>
-                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Zoek op een snelle en efficiente manier studenten die echt willen werken! Plaats snel een vacature.</p>
-                <?php }?>
-                
-                
-                <?php if(!empty($_SESSION['loggedIn']) == false){?>
-                <a href="login.php" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Wij bij Jobbby vinden het makkelijk als jij je studentenjob zo snel mogelijk kan vinden om je cv uit te breiden!</p>
+                <a href="#" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                     Log in als student
                     <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 </a>
-                <a href="login.php" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Log in als werkgever
-                    <svg class="w-5 h-5 ml-2 -mr-1" fill="black" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-
                 </a> 
-                <?php }else{?>
-                  <!-- <p>fjdsqlkfj</p> -->
-                  <?php }?>
             </div>
             <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
                 <img src="images/ILSVGSTUD.svg" alt="Student picture vector">
             </div>                
         </div>
-          <!-- Start zoekbalk -->
+    </section>
+
+  <!-- Einde Home page page -->
+
+  <!-- Start zoekbalk -->
   <form class="flex items-center mx-auto md:ml-32 md:mr-auto">
-  <label for="simple-search" class="sr-only">Zoeken</label>
+  <label for="simple-search" class="sr-only">Search for work</label>
   <div class="relative w-full md:w-1/2">
     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
       <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -85,114 +69,184 @@
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
     </svg>
-    <span class="sr-only">Zoek voor work</span>
+    <span class="sr-only">Search for work</span>
   </button>
 </form>
-<!-- Einde zoekbalk -->
-    </section>
 
-  <!-- Einde Home page page -->
-
-<!-- Cards -->
-  <!-- Einde job cards -->
-  <div class="hidden lg:mt-0 lg:col-span-5 lg:flex items-center justify-center">
-  <img src="images/WIP.svg" alt="WIP" class="max-w-full w-auto flex-shrink-0">
-</div>
-
+  <!-- Einde zoekbalk -->
   
+  
+  <!-- Start job cards -->
+<!-- Cards -->
+
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-0z+YgOJhRceH9CLQs+ZI0GWsQc1sAaJdfxwu/p+Oa1zll0GKjhtXJrrdZvoJ8S6/3t+Wp3qmf+JyESN54zH4Gg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <meta charset="UTF-8">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+    
+  </script>
+    <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+  </style>
+
+
+
+
+  <!-- Einde job cards -->
+  <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+                <img src="WIP.svg" alt="WIP">
+            </div>      
 <!-- Start microcards home page-->
-<div class="center-jobs">
-        <div class="jobs">
-                <?php foreach($jobs as $job): ?>
-                        <?php 
-                            if($job['pro_vacature'] == 1){
-                                ?><div class="entire-card-yellow"><?php
-                            }else{
-                                ?><div class="entire-card"><?php
-                            }
-                        ?>
-                        <a href="job.php?id=<?php echo $job['id'];?>">
-                            <div class="vac-title">
-                                <?php echo $job['job_titel']?>
-                            </div>
-                        </a>
-                            
-
-                            <div class="vac-gevraagd-uurloon">
-                                <p class="nodig"><?php echo $job['nodig']?></p>
-                                <p class="uurloon"><?php echo "€" . $job['salaris'] . " per uur."?></p>
-                            </div>
-
-                            <div class="card-bottom">
-                                <div class="side-side">
-                                    <div>
-                                        <img id="chrome" src="images/chrome.png" alt="">
-                                    </div>
-                                    <div class="vac-beschrijving">
-                                        <div>
-                                            <div class="vac-bedrijf">
-                                                <p><?php echo $job['bedrijfnaam']?></p>
-                                            </div>
-                                            <div class="vac-locatie">
-                                                <img src="images/loc.svg" alt="">
-                                                <p><?php echo $job['locatie']?></p>
-                                            </div>
-                                        </div>
-                                        <div class="favorite">
-                                            <img src="../jobbby/images/favorite.svg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                <?php endforeach; ?>    
+<div class="m-7 mx-auto flex max-w-7xl flex-col px-5">
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+    <div class="rounded-xl border-2 border-gray-100 bg-white p-6 shadow-sm">
+      <div class="mb-4 text-lg font-bold">Lorem Ipsum</div>
+      <div class="mb-5 flex flex-row items-center gap-2">
+        <div class="rounded-md bg-green-200 px-2 py-1 text-xs font-semibold uppercase text-green-600">Student</div>
+        <div class="text-gray-500">Salaris: €15/uur - €20/uur</div>
+      </div>
+      <div class="flex flex-row items-center justify-between">
+        <div class="flex flex-row items-center">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-100">
+            <img class="h-10" src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="" />
+          </div>
+          <div class="ml-2">
+            <div class="mb-1 text-sm font-semibold">Google Inc</div>
+            <div class="flex flex-row items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-gray-400">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              </svg>
+              <div class="text-xs font-medium text-gray-400">Wommelgem</div>
+            </div>
+          </div>
         </div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-gray-400">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="rounded-xl border-2 border-gray-100 bg-white p-6 shadow-sm">
+      <div class="mb-4 text-lg font-bold">Lorem Ipsum</div>
+      <div class="mb-5 flex flex-row items-center gap-2">
+        <div class="rounded-md bg-green-200 px-2 py-1 text-xs font-semibold uppercase text-green-600">Student</div>
+        <div class="text-gray-500">Salaris: €15/uur - €20/uur</div>
+      </div>
+      <div class="flex flex-row items-center justify-between">
+        <div class="flex flex-row items-center">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-100">
+            <img class="h-10" src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="" />
+          </div>
+          <div class="ml-2">
+            <div class="mb-1 text-sm font-semibold">Google Inc</div>
+            <div class="flex flex-row items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-gray-400">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              </svg>
+              <div class="text-xs font-medium text-gray-400">Wommelgem</div>
+            </div>
+          </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-gray-400">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="relative rounded-xl border-2 border-gray-100 bg-gradient-to-r from-yellow-300/50 p-6 shadow-sm">
+      <div class="absolute -right-2 -top-3 rotate-12">
+        <div class="rounded-xl bg-yellow-500 px-4 py-1 font-semibold text-white shadow-2xl">Pro</div>
+      </div>
+      <div class="mb-4 text-lg font-bold">Lorem Ipsum</div>
+      <div class="mb-5 flex flex-row items-center gap-2">
+        <div class="rounded-md bg-green-200 px-2 py-1 text-xs font-semibold uppercase text-green-600">Student</div>
+        <div class="text-gray-500">Salaris: €15/uur - €20/uur</div>
+      </div>
+      <div class="flex flex-row items-center justify-between">
+        <div class="flex flex-row items-center">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-100">
+            <img class="h-10" src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="" />
+          </div>
+          <div class="ml-2">
+            <div class="mb-1 text-sm font-semibold">Google Inc</div>
+            <div class="flex flex-row items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-gray-400">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              </svg>
+              <div class="text-xs font-medium text-gray-400">Wommelgem</div>
+            </div>
+          </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-gray-400">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+        </svg>
+      </div>
     </div>
   </div>
+</div>
 
 <!-- End microcards home page-->
 
 <!-- Drietak  Gen Z is op zoek naar ...-->
-<div class="mx-auto max-w-5xl px-4 py-14">
-  <div class="mb-4 flex items-center justify-between">
-    <h1 class="text-left text-3xl font-semibold">Gen Z is op zoek naar</h1>
-    <button target="_blank" href="jobs.php" class="rounded-lg border-2 border-gray-100 px-4 py-2 font-semibold text-blue-600">Bekijk alles</button>
+<h1 class="text-left">Gen Z is op zoek naar</h1>
+<div class="flex flex-col md:flex-row md:space-x-4">
+  <div class="flex w-full flex-col overflow-hidden rounded-lg bg-gray-100 shadow-md md:w-1/3 md:flex-row">
+    <img src="https://via.placeholder.com/300x200" alt="Afbeelding" class="h-auto w-full md:w-1/3" />
+    <div class="p-4 md:w-2/3">
+      <h3 class="mb-2 text-lg font-bold">Verkoop</h3>
+      <ul class="list-inside list-disc">
+        <li><a href="#" class="text-blue-600 hover:underline">Tekst opsomming 1</a></li>
+        <li><a href="#" class="text-blue-600 hover:underline">Tekst opsomming 2</a></li>
+        <li><a href="#" class="text-blue-600 hover:underline">Tekst opsomming 3</a></li>
+      </ul>
+    </div>
   </div>
 
-  <div class="grid gap-5 sm:grid-cols-2">
-    <div class="flex w-full flex-col items-start justify-between rounded-lg bg-gray-100 p-8 shadow-md md:flex-row">
-      <div class="rounded-xl bg-blue-100 p-3 sm:w-1/2">
-        <img src="images/verkoop.jpg" alt="Verkoopsstudent" class="w-full rounded-2xl" />
-      </div>
-      <div class="sm:ml-4 mt-4 sm:mt-0">
-        <h3 class="mb-1 text-lg font-bold">Verkoop</h3>
-        <a href="jobs.php" class="mb-6 text-gray-500">Zie alle vacatures</a>
-        <ul class="mt-3 list-inside list-disc">
-          <?php foreach($horecas as $horeca): ?>
-          <li class="list-none mb-1"><a href="job.php?id=<?php echo $job['id'];?>" class="text-blue-600 hover:underline"><?php echo $horeca['job_titel']; ?></a></li>
-          <?php endforeach; ?>
-        </ul>
-      </div>
+  <div class="flex w-full flex-col overflow-hidden rounded-lg bg-gray-100 shadow-md md:w-1/3 md:flex-row">
+    <img src="https://via.placeholder.com/300x200" alt="Afbeelding" class="h-auto w-full md:w-1/3" />
+    <div class="p-4 md:w-2/3">
+      <h3 class="mb-2 text-lg font-bold">Toerisme</h3>
+      <ul class="list-inside list-disc">
+        <li><a href="#" class="text-blue-600 hover:underline">Tekst opsomming 1</a></li>
+        <li><a href="#" class="text-blue-600 hover:underline">Tekst opsomming 2</a></li>
+        <li><a href="#" class="text-blue-600 hover:underline">Tekst opsomming 3</a></li>
+      </ul>
     </div>
+  </div>
 
-    <div class="flex w-full flex-col items-start justify-between rounded-lg bg-gray-100 p-8 shadow-md md:flex-row">
-      <div class="rounded-xl bg-blue-100 p-3 sm:w-1/2">
-        <img src="images/content.jpg" alt="Content creator" class="w-full rounded-2xl" />
-      </div>
-      <div class="sm:ml-4 mt-4 sm:mt-0">
-        <h3 class="mb-1 text-lg font-bold">Content creatie</h3>
-        <a href="jobs.php" class="mb-6 text-gray-500">Zie alle vacatures</a>
-        <ul class="mt-3 list-inside list-disc">
-          <?php foreach($informaticas as $informatica):?>
-          <li class="list-none mb-1"><a href="job.php?id=<?php echo $job['id'];?>" class="text-blue-600 hover:underline"><?php echo $informatica['job_titel']?></a></li>
-          <?php endforeach; ?>
-        </ul>
-      </div>
+  <div class="flex w-full flex-col overflow-hidden rounded-lg bg-gray-100 shadow-md md:w-1/3 md:flex-row">
+    <img src="https://via.placeholder.com/300x200" alt="Afbeelding" class="h-auto w-full md:w-1/3" />
+    <div class="p-4 md:w-2/3">
+      <h3 class="mb-2 text-lg font-bold">Content creatie</h3>
+      <ul class="list-inside list-disc">
+        <li><a href="#" class="text-blue-600 hover:underline">Tekst opsomming 1</a></li>
+        <li><a href="#" class="text-blue-600 hover:underline">Tekst opsomming 2</a></li>
+        <li><a href="#" class="text-blue-600 hover:underline">Tekst opsomming 3</a></li>
+      </ul>
     </div>
   </div>
 </div>
-
-
 <!-- EINDE Drietak  Gen Z is op zoek naar ...-->
 
 
@@ -204,7 +258,7 @@
 
 <section class="bg-gray-100">
   <div
-    class="mx-auto max-w-[1408px] px-4 py-16 sm:px-6 sm:py-24 lg:me-0 lg:pe-0 lg:ps-8"
+    class="mx-auto max-w-[1640px] px-4 py-16 sm:px-6 sm:py-24 lg:me-0 lg:pe-0 lg:ps-8"
   >
   
     <div
@@ -581,59 +635,67 @@
 <!-- EINDE Reviews -->
 
 <!-- Start register/login block -->
-<?php if(!empty($_SESSION['loggedIn']) == false){?>
-<div class="bg-white py-12">
-  <div class="mx-40 grid grid-cols-1 sm:grid-cols-2 gap-2">
-    <div class="p-6 rounded-lg border bg-cover" style="background-image: url('images/RegisterStud.jpg'); background-color: rgba(255, 255, 255, 0.1);">
-      <h2 class="text-lg font-medium mb-4">Registreer je als student</h2>
-      <p class="mb-4">Altijd al gewild om je cv uit te breiden en je droomstudentenjob te vinden? Dromen bestaan niet, of toch wel?! Met Jobbby komen je dromen uit!</p>
-      <div class="flex justify-end">
-        <a  href="login.php" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Login als student</a>
-        <a  href="register.php" class="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Registreer als student</a>
-      </div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+  <div class="p-6 rounded-lg border">
+    <h2 class="text-lg font-medium mb-4">Registreer je als bedrijf</h2>
+    <p class="mb-4">Altijd al gewild om je cv uit te breiden en je droomstudentenjob te vinden? Dromen bestaan niet, of toch wel?! Met Jobbby komen je dromen uit!</p>
+    <div class="flex justify-end">
+      <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Login als bedrijf</button>
+      <button class="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Registreer als bedrijf</button>
     </div>
-    <div class="p-6 rounded-lg border" style="background-image: url('images/LoginStud.jpg'); background-repeat: no-repeat; background-position: 75% center; background-color: rgba(255, 255, 255, 0.1);">
-      <h2 class="text-lg font-medium mb-4">Registreer je als bedrijf</h2>
-      <p class="mb-4">Altijd al gewild om studenten werkervaring te geven? Jij kan ze helpen! Als bedrijf heb je iemand die je jobs kan uitvoeren zonder veel geld eraan te moeten besteden.</p>
-      <div class="flex justify-end">
-        <a href="login.php" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Login als bedrijf</a>
-        <a href="registercompany.php" class="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Registreer als bedrijf</a>
-      </div>
+  </div>
+  <div class="p-6 rounded-lg border">
+    <h2 class="text-lg font-medium mb-4">Registreer je als student</h2>
+    <p class="mb-4">Altijd al gewild om studenten werkervaring te geven? Jij kan ze helpen! Als bedrijf heb je iemand die je jobs kan uitvoeren zonder veel geld eraan te moeten besteden.</p>
+    <div class="flex justify-end">
+      <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Login als bedrijf</button>
+      <button class="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Registreer als bedrijf</button>
     </div>
   </div>
 </div>
+<!-- End register/login block -->
 
-<?php } else { ?>
-  <div>
-    <!-- <p>fsfdfqs</p> -->
+<!-- Start footer -->
+<footer class="bg-gray-900 text-white">
+  <div class="container mx-auto px-10 py-6 flex flex-wrap justify-between md:flex-row">
+    <div class="w-full md:w-2/12 mb-6 md:mb-0">
+      <h2 class="text-xl font-bold mb-4">Jobbby</h2>
+      <p class="mb-2">Telefoon</p>
+      <p class="mb-4">+32 479 39 86 78</p>
+      <p>Eikenlaan 40, 2160 Wommelgem</p>
+      <p>België</p>
+    </div>
+    <div class="w-full md:w-2/12 mb-6 md:mb-0">
+      <h2 class="text-xl font-bold mb-4">Snelle links</h2>
+      <ul>
+        <li class="mb-2"><a href="#">About</a></li>
+        <li class="mb-2"><a href="#">Contact</a></li>
+        <li class="mb-2"><a href="#">Pricing</a></li>
+      </ul>
+    </div>
+    <div class="w-full md:w-2/12 mb-6 md:mb-0">
+      <h2 class="text-xl font-bold mb-4">Studenten</h2>
+      <ul>
+        <li class="mb-2"><a href="#">Bekijk jobs</a></li>
+        <li class="mb-2"><a href="#">Bekijk aanbieders</a></li>
+        <li class="mb-2"><a href="#">Opgeslagen jobs</a></li>
+      </ul>
+    </div>
+    <div class="w-full md:w-2/12 mb-6 md:mb-0">
+      <h2 class="text-xl font-bold mb-4">Werkaanbieders</h2>
+      <ul>
+        <li class="mb-2"><a href="#">Plaats een vacature</a></li>
+        <li class="mb-2"><a href="#">Bekijk kandidaten</a></li>
+        <li class="mb-2"><a href="#">Sollicitaties</a></li>
+      </ul>
+    </div>
+    <div class="w-full md:w-2/12 mb-6 md:mb-0">
+      <h2 class="text-xl font-bold mb-4">Support</h2>
+      <ul>
+        <li class="mb-2"><a href="#">FAQ</a></li>
+        <li class="mb-2"><a href="#">Privacy Policy</a></li>
+        <li class="mb-2"><a href="#">Terms & Conditions</a></li>
+      </ul>
+    </div>
   </div>
-  <?php } ?>
-</div>
-
-
-<?php include_once(__DIR__ . '/compartments/footer.php'); ?>
-
-<script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            clifford: '#da373d',
-          }
-          
-        }
-      }
-    }
-    
-  </script>
-    <style type="text/tailwindcss">
-    @layer utilities {
-      .content-auto {
-        content-visibility: auto;
-      }
-      
-    }
-    
-  </style>
-</body>
-</html>
+</footer>
